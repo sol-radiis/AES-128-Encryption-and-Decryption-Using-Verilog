@@ -87,10 +87,10 @@ module aes_128 (
             round <= round + 1;
         end else if (busy && round == 10) begin
             if (encrypt) begin
-                // Encryption final round: Sub→Shift→AddKey (no Mix)
+                // Encryption final round: Sub→Shift→AddKey 
                 ciphertext <= shift_rows_out ^ round_key;
             end else begin
-                // Decryption final round: InvShift→InvSub→AddKey (no InvMix)
+                // Decryption final round: InvShift→InvSub→AddKey 
                 ciphertext <= after_key;
             end
             busy  <= 0;
