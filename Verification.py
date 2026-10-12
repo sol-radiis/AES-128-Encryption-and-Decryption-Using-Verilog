@@ -192,8 +192,8 @@ def aes_decrypt(ciphertext: bytes, key: bytes) -> bytes:
     return pkcs7_unpad(bytes(decrypted))
 
 if __name__ == "__main__":
-    test_key = b" "
-    message = b" "
+    test_key = b"\x00\x11\x22\x33\x44\x55\x66\x77\x88\x99\xaa\xbb\xcc\xdd\xee\xff"
+    message = b"\x00\x11\x22\x33\x44\x55\x66\x77\x88\x99\xaa\xbb\xcc\xdd\xee\xff"
 
     encrypted = aes_encrypt(message, test_key)
     decrypted = aes_decrypt(encrypted, test_key)
